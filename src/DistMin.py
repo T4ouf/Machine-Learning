@@ -12,15 +12,6 @@ dev = np.load('../data/dev_img.npy')
 devLabel = np.load('../data/dev_lbl.npy')
 
 
-"""
-Function that prints an image (reshape is in the function)
-"""
-def printImage(im):
-    img = im.reshape(28,28)
-    plt.imshow(img,plt.cm.gray)
-    plt.show()
-
-
 # Defining our classes
 class0 = training[trainingLabel == 0]
 class1 = training[trainingLabel == 1]
@@ -51,15 +42,15 @@ avg = [avg0,avg1,avg2,avg3,avg4,avg5,avg6,avg7,avg8,avg9]
 classifierDevLabel = np.zeros(devLabel.shape)
 
 for i in range(0,devLabel.shape[0],1):
-    
+
     squareDist = np.zeros(10)
-    
+
     for classNb in range(0,10,1):
         squareDist[classNb] = np.sum(((dev[i] - avg[classNb])**2))
-    
-    classifierDevLabel[i] = np.argmin(squareDist)        
 
+    classifierDevLabel[i] = np.argmin(squareDist)
 
+#Checking the error rate on dev 
 errorDev = dev[devLabel != classifierDevLabel]
-error = (errorDev.shape[0]/devLabel.shape[0])*100
-print('Error of classification : ' + str(error) + "%")
+error = (errorDev.shape[0]*1.0/devLabel.shape[0])*100
+print('Classification Error : ' + str(error) + "%")

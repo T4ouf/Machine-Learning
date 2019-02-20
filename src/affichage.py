@@ -26,3 +26,23 @@ def affiche(W1, W2, A, iteration):
     plt.plot(W2[0,:], W2[1,:], 'bx')
     plt.plot(D[:,0], D[:,1], ls='-', color=gradient[iteration%(len(gradient))])
     # plt.show()
+
+
+"""
+Function that prints an image (reshape is in the function)
+"""
+def printImage(im):
+    img = im.reshape(28,28)
+    plt.imshow(img,plt.cm.gray)
+    plt.show()
+
+def printGraph(x,y,title,xAxis,yAxis) :
+    plt.plot(x,y,'b-')
+
+    plt.title(title)  #Adding a title
+    plt.xlabel(xAxis) #X axis title
+    plt.ylabel(yAxis) #Y axis title
+
+    plt.set_figheight(100)
+    
+    plt.show()
