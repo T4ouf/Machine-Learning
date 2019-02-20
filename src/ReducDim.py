@@ -75,7 +75,7 @@ for dim in range(0,30,3) :
 
 
 dimensions[10] = 784
-errors[10] = DistMin(training,label)
+errors[10] = DistMin(training,dev)
 
 affichage.printGraph(dimensions,errors,"Errors depending of the dimension kept by PCA","Dimension","Error rate (%)")
 
