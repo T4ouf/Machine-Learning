@@ -42,7 +42,4 @@ def printGraph(x,y,title,xAxis,yAxis) :
     plt.title(title)  #Adding a title
     plt.xlabel(xAxis) #X axis title
     plt.ylabel(yAxis) #Y axis title
-
-    plt.set_figheight(100)
-    
     plt.show()
