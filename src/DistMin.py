@@ -4,7 +4,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-
+# We load datas
 training = np.load('../data/trn_img.npy')
 trainingLabel = np.load('../data/trn_lbl.npy')
 
@@ -38,16 +38,19 @@ avg9 = np.mean(class9, axis=0)
 
 avg = [avg0,avg1,avg2,avg3,avg4,avg5,avg6,avg7,avg8,avg9]
 
-
+#We try to guess the classes of our dev images
 classifierDevLabel = np.zeros(devLabel.shape)
 
+#For Each image...
 for i in range(0,devLabel.shape[0],1):
 
     squareDist = np.zeros(10)
-
+    
+    #Computing the distance to each centroid
     for classNb in range(0,10,1):
         squareDist[classNb] = np.sum(((dev[i] - avg[classNb])**2))
-
+    
+    #We say that the image's class is  the class that is the nearest (minimum distance classifier)
     classifierDevLabel[i] = np.argmin(squareDist)
 
 #Checking the error rate on dev 

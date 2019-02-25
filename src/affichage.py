@@ -36,10 +36,18 @@ def printImage(im):
     plt.imshow(img,plt.cm.gray)
     plt.show()
 
-def printGraph(x,y,title,xAxis,yAxis) :
+"""
+Function that prints a graph
+"""
+def printGraph(x,y,title,xAxisLabel,yAxisLabel,xmin,xmax,ymin,ymax) :
+    
+    axes = plt.gca()
+    
+    axes.set_xlim([xmin,xmax])
+    axes.set_ylim([ymin,ymax])
+    
     plt.plot(x,y,'b-')
-
     plt.title(title)  #Adding a title
-    plt.xlabel(xAxis) #X axis title
-    plt.ylabel(yAxis) #Y axis title
+    plt.xlabel(xAxisLabel) #X axis title
+    plt.ylabel(yAxisLabel) #Y axis title
     plt.show()
