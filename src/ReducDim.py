@@ -92,9 +92,9 @@ affichage.printGraph(dimensions,errors,"Errors depending of the dimension kept b
 dimensionsRelative = (dimensions/784)*100
                      
 withoutPCAErrorRate = DistMin(PCAtraining, PCAdev)
-errorsRelative = abs(errors-withoutPCAErrorRate)
+errorsRelative = abs(errors-withoutPCAErrorRate)/dimensionsRelative
 
 affichage.printGraph(dimensionsRelative,errorsRelative,"Errors depending of the dimension kept by PCA","Dimension Relative","Error rate increase (%)", 0,30,0,100)
-"""            
+"""   
                     
 t = input("Press Enter to finish the programm...")
